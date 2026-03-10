@@ -1,25 +1,15 @@
 [package]
 name = "astralane-quic-client"
 edition = "2021"
-version = "0.0.1"
+version = "0.0.2"
 
 [dependencies]
-quinn = "0.11"
-rustls = { version = "0.23", default-features = false, features = ["ring", "std"] }
-rcgen = "0.13"
-tokio = { version = "1.42.0", features = ["rt-multi-thread", "net", "macros", "time"] }
-anyhow = "1.0.99"
-tracing = "0.1.40"
+quinn = "0.10"
+rustls = { version = "0.21", features = ["dangerous_configuration"] }
+rcgen = "0.10"
+tokio = { version = "1", features = ["rt-multi-thread", "net", "macros", "time"] }
+anyhow = "1"
+tracing = "0.1"
 
-[dev-dependencies]
-tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
-solana-sdk = "3.0.0"
-solana-compute-budget-interface = "3.0.0"
-solana-system-interface = { version = "3.1.0", features = ["bincode"] }
-bincode = "1.3.3"
-reqwest = { version = "0.12.9", features = ["json"] }
-serde_json = "1.0.134"
-
-[[example]]
-name = "send_transaction"
-path = "examples/send_transaction.rs"
+# pin to avoid edition2024 requirement on older toolchains
+time = ">=0.3, <0.3.41"
