@@ -10,6 +10,3 @@ rcgen = "0.10"
 tokio = { version = "1", features = ["rt-multi-thread", "net", "macros", "time"] }
 anyhow = "1"
 tracing = "0.1"
-
-# pin to avoid edition2024 requirement on older toolchains
-time = ">=0.3, <0.3.41"
